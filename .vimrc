@@ -2,6 +2,7 @@
 
 " Notes
 " - http://www.stephendiehl.com/posts/vim_2016.html
+" - font: FantasqueSansMono
 " - <leader> = \
 
 " Colors -----------------------------------------------------------------------
