@@ -2,7 +2,7 @@
 
 " Notes
 " - http://www.stephendiehl.com/posts/vim_2016.html
-" - font: FantasqueSansMono
+" - font: https://github.com/belluzj/fantasque-sans
 " - <leader> = \
 
 " Colors -----------------------------------------------------------------------
@@ -73,36 +73,34 @@ nnoremap <leader>l :call ToggleNumber()<CR>
 
 " use pathogen
 execute pathogen#infect()
-" installed plugins
+" == INSTALLED PLUGINS ==
 " ag.vim
-" neco-ghc
-" powerline
-" tlib_vim
-" vim-airline-themes
-" vim-endwise
-" vim-snipmate
-" YouCompleteMe
-" ctrlp.vim
-" neocomplete.vim
-" supertab
-" undotree
-" vim-bundler
-" vim-fugitive
-" vim-surround
-" elm-vim
-" nerdcommenter
-" syntastic
-" vim-addon-mw-utils
-" vim-easymotion
-" vimproc.vim
-" vim-syntastic
-" ghcmod-vim
-" nerdtree
-" tabular
-" vim-airline
-" vim-elixir
-" vim-ruby
-" vim-vroom
+"   - https://github.com/ggreer/the_silver_searcher
+"   - https://github.com/epmatsw/ag.vim
+" ctrlp.vim: https://github.com/kien/ctrlp.vim
+" elm-vim: https://github.com/ElmCast/elm-vim
+" ghcmod-vim: https://github.com/eagletmt/ghcmod-vim
+" neco-ghc: https://github.com/eagletmt/neco-ghc
+" neocomplete.vim: https://github.com/Shougo/neocomplete.vim
+" nerdcommenter: https://github.com/scrooloose/nerdcommenter
+" nerdtree: https://github.com/scrooloose/nerdtree
+" supertab: https://github.com/ervandew/supertab
+" syntastic: https://github.com/vim-syntastic/syntastic
+" tabular: https://github.com/godlygeek/tabular
+" tlib_vim: https://github.com/tomtom/tlib_vim
+" undotree: https://github.com/mbbill/undotree
+" vim-airline: https://github.com/vim-airline/vim-airline
+" vim-airline-themes: https://github.com/vim-airline/vim-airline-themes
+" vim-addon-mw-utils: https://github.com/MarcWeber/vim-addon-mw-utils
+" vim-bundler: https://github.com/tpope/vim-bundler
+" vim-easymotion: https://github.com/easymotion/vim-easymotion
+" vim-elixir: https://github.com/elixir-editors/vim-elixir
+" vim-endwise: https://github.com/tpope/vim-endwise
+" vim-fugitive: https://github.com/tpope/vim-fugitive
+" vim-ruby: https://github.com/vim-ruby/vim-ruby
+" vim-surround: https://github.com/tpope/vim-surround
+" vim-vroom: https://github.com/skalnik/vim-vroom
+" vimproc.vim: https://github.com/Shougo/vimproc.vim
 
 
 " undotree ---------------------------------------------------------------------
