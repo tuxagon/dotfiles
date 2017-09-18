@@ -1,5 +1,6 @@
 choco install 7zip.install -y
 choco install babun -y
+choco install cygwin -y
 choco install chocolatey -y
 choco install chocolatey-core.extension -y
 choco install curl -y
