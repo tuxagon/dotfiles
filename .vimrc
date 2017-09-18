@@ -73,6 +73,37 @@ nnoremap <leader>l :call ToggleNumber()<CR>
 
 " use pathogen
 execute pathogen#infect()
+" installed plugins
+" ag.vim
+" neco-ghc
+" powerline
+" tlib_vim
+" vim-airline-themes
+" vim-endwise
+" vim-snipmate
+" YouCompleteMe
+" ctrlp.vim
+" neocomplete.vim
+" supertab
+" undotree
+" vim-bundler
+" vim-fugitive
+" vim-surround
+" elm-vim
+" nerdcommenter
+" syntastic
+" vim-addon-mw-utils
+" vim-easymotion
+" vimproc.vim
+" vim-syntastic
+" ghcmod-vim
+" nerdtree
+" tabular
+" vim-airline
+" vim-elixir
+" vim-ruby
+" vim-vroom
+
 
 " undotree ---------------------------------------------------------------------
 
@@ -170,14 +201,16 @@ let g:airline#extensions#tabline#enabled = 1
 "  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "endif
 
+" easy-motion - TODO -----------------------------------------------------------
+
 " == autogroup ==
 
-augroup configgroup
-  autocmd!
-  autocmd VimEnter * highlight clear SignColumn
-  autocmd BufWritePre *.hs,*.ex,*.elm,*.js,*.exs,*.py,*.rb,*.md
-              \:call <SID>StripTrailingWhitespaces()
-augroup END
+"augroup configgroup
+"  autocmd!
+"  autocmd VimEnter * highlight clear SignColumn
+"  autocmd BufWritePre *.hs,*.ex,*.elm,*.js,*.exs,*.py,*.rb,*.md
+"              \:call <SID>StripTrailingWhitespaces()
+"augroup END
 
 " Custom Functions -------------------------------------------------------------
 
