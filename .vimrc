@@ -73,35 +73,6 @@ nnoremap <leader>l :call ToggleNumber()<CR>
 
 " use pathogen
 execute pathogen#infect()
-" == INSTALLED PLUGINS ==
-" ag.vim
-"   - https://github.com/ggreer/the_silver_searcher
-"   - https://github.com/epmatsw/ag.vim
-" ctrlp.vim: https://github.com/kien/ctrlp.vim
-" elm-vim: https://github.com/ElmCast/elm-vim
-" ghcmod-vim: https://github.com/eagletmt/ghcmod-vim
-" neco-ghc: https://github.com/eagletmt/neco-ghc
-" neocomplete.vim: https://github.com/Shougo/neocomplete.vim
-" nerdcommenter: https://github.com/scrooloose/nerdcommenter
-" nerdtree: https://github.com/scrooloose/nerdtree
-" supertab: https://github.com/ervandew/supertab
-" syntastic: https://github.com/vim-syntastic/syntastic
-" tabular: https://github.com/godlygeek/tabular
-" tlib_vim: https://github.com/tomtom/tlib_vim
-" undotree: https://github.com/mbbill/undotree
-" vim-airline: https://github.com/vim-airline/vim-airline
-" vim-airline-themes: https://github.com/vim-airline/vim-airline-themes
-" vim-addon-mw-utils: https://github.com/MarcWeber/vim-addon-mw-utils
-" vim-bundler: https://github.com/tpope/vim-bundler
-" vim-easymotion: https://github.com/easymotion/vim-easymotion
-" vim-elixir: https://github.com/elixir-editors/vim-elixir
-" vim-endwise: https://github.com/tpope/vim-endwise
-" vim-fugitive: https://github.com/tpope/vim-fugitive
-" vim-ruby: https://github.com/vim-ruby/vim-ruby
-" vim-surround: https://github.com/tpope/vim-surround
-" vim-vroom: https://github.com/skalnik/vim-vroom
-" vimproc.vim: https://github.com/Shougo/vimproc.vim
-
 
 " undotree ---------------------------------------------------------------------
 
@@ -116,16 +87,28 @@ nnoremap <leader>a :Ag
 
 " syntastic --------------------------------------------------------------------
 
-map <Leader>s :SyntasticToggleMode<CR>
+" map <Leader>s :SyntasticToggleMode<CR>
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+
+" elm-vim ----------------------------------------------------------------------
+
+let g:elm_jump_to_error = 0
+let g:elm_make_output_file = "elm.js"
+let g:elm_make_show_warnings = 0
+let g:elm_syntastic_show_warnings = 0
+let g:elm_browser_command = ""
+let g:elm_detailed_complete = 0
+let g:elm_format_autosave = 1
+let g:elm_format_fail_silently = 0
+let g:elm_setup_keybindings = 1
 
 " ghc-mod ----------------------------------------------------------------------
 

@@ -1,4 +1,5 @@
 apt-get install silversearcher-ag
+apt-get install vim-gnome
 
 cd ~/.vim/bundle
 
