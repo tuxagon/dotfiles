@@ -117,6 +117,16 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
+" purescript-vim ---------------------------------------------------------------
+
+let purescript_indent_if = 3
+let purescript_indent_case = 5
+let purescript_indent_let = 4
+let purescript_indent_where = 6
+let purescript_indent_do = 3
+let purescript_indent_in = 1
+let purescript_indent_dot = v:true
+
 " supertab --------------------------------------------------------------------- 
 
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
