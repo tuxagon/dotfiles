@@ -13,6 +13,7 @@ git clone https://github.com/eagletmt/neco-ghc.git
 git clone https://github.com/Shougo/neocomplete.vim.git
 git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/scrooloose/nerdtree.git
+git clone https://github.com/FrigoEU/psc-ide-vim.git
 git clone https://github.com/raichoo/purescript-vim.git
 git clone https://github.com/ervandew/supertab.git
 # git clone https://github.com/vim-syntastic/syntastic.git
