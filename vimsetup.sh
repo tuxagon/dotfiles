@@ -1,5 +1,9 @@
-apt-get install silversearcher-ag
-apt-get install vim-gnome
+sudo apt-get install silversearcher-ag vim-gnome
+
+cd ~
+git clone https://github.com/nanotech/jellybeans.vim.git
+cp jellybeans.vim/colors ~/.vim/colors
+rm -rf jellybeans.vim
 
 cd ~/.vim/bundle
 
