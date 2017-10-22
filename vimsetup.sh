@@ -1,5 +1,8 @@
 sudo apt-get install silversearcher-ag vim-gnome
 
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 cd ~
 git clone https://github.com/nanotech/jellybeans.vim.git
 cp jellybeans.vim/colors ~/.vim/colors
