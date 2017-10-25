@@ -57,11 +57,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"
+
 # allow zsh to give me a sanity check on `rm *`
 setopt RM_STAR_WAIT
-
-# zsh spelling corrector
-setopt CORRECT
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -88,6 +89,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+alias cpzsh="cp ~/.zshrc ~/dotfiles"
+alias cpvim="cp ~/.vimrc ~/dotfiles"
+alias cptmux="cp ~/.tmux.conf ~/dotfiles"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
