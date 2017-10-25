@@ -37,5 +37,6 @@ git clone https://github.com/tpope/vim-endwise.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/vim-ruby/vim-ruby.git
 git clone https://github.com/tpope/vim-surround.git
+git clone https://github.com/christoomey/vim-tmux-navigator.git
 git clone https://github.com/skalnik/vim-vroom.git
 git clone https://github.com/Shougo/vimproc.vim.git
