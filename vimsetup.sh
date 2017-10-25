@@ -40,3 +40,5 @@ git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git
 git clone https://github.com/skalnik/vim-vroom.git
 git clone https://github.com/Shougo/vimproc.vim.git
+cd vimproc.vim
+make
