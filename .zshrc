@@ -3,6 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kbogner/.oh-my-zsh
+export PATH="$PATH:/home/kbogner/bin"
+export PATH="$PATH:/home/kbogner/bin/elixir-1.5.2/bin"
+export PATH="$PATH:/home/kbogner/.local/bin"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -77,6 +80,11 @@ export VISUAL=$EDITOR
 # else
 #   export EDITOR='mvim'
 # fi
+
+# exercism autocompletion
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+    . ~/.config/exercism/exercism_completion.zsh
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
