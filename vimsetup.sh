@@ -36,6 +36,8 @@ git clone https://github.com/easymotion/vim-easymotion.git
 git clone https://github.com/elixir-editors/vim-elixir.git
 git clone https://github.com/tpope/vim-endwise.git
 git clone https://github.com/tpope/vim-fugitive.git
+git clone https://github.com/tpope/vim-rails.git
+vim -u NONE -c "helptags vim-rails/doc" -c q
 git clone https://github.com/vim-ruby/vim-ruby.git
 git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git
