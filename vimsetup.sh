@@ -15,6 +15,7 @@ git clone https://github.com/w0rp/ale.git
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/editorconfig/editorconfig-vim.git
 git clone https://github.com/ElmCast/elm-vim.git
+git clone https://github.com/mattn/emmet-vim.git
 git clone https://github.com/eagletmt/ghcmod-vim.git
 git clone https://github.com/eagletmt/neco-ghc.git
 git clone https://github.com/Shougo/neocomplete.vim.git
