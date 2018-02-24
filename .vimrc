@@ -32,6 +32,7 @@ set showmatch  " highlight matching [{()}]
 set mouse=a
 set history=1000
 set clipboard=unnamedplus,autoselect
+set autowrite   " saves the file whenever :make is ran (used by vim-go)
 
 set foldenable  " enable folding
 set foldlevelstart=10  " open most folds by default
@@ -70,6 +71,18 @@ set writebackup
 
 " map to custom function
 nnoremap <leader>l :call ToggleNumber()<CR>
+
+" map to switching tabs
+"   :tabe <filename>   is used to open a new tab
+"   :tabn              is used to go to the next tab
+"       gt             is equivalent from NERDTree
+"   :tabp              is used to go to the previous tab
+"       gT             is equivalent from NERDTree
+"   :sp <filepath>     is used to split screen in multiple files
+"       <C-w>          is used to go to the next window
+"       <C-W>          is used to go to the previous window
+" nmap <C-]> :tabn<CR>
+" nmap <C-[> :tabp<CR>
 
 " use pathogen
 execute pathogen#infect()
@@ -166,6 +179,45 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " NERDTree --------------------------------------------------------------------- 
 
 map <Leader>n :NERDTreeToggle<CR>
+
+" vim-go -----------------------------------------------------------------------
+
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_def_mode = 'godef'
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" shortcuts for common vim-go functions
+autocmd FileType go nmap <leader>t :GoTest<CR>
+" autocmd FileType go nmap <leader>b :GoBuild<CR>
+autocmd FileType go nmap <leader>r :GoRun<CR>
+autocmd FileType go nmap <leader>c :GoCoverageToggle<CR>
+autocmd FileType go nmap <leader>d :GoDocBrowser<CR>
+autocmd FileType go nmap <leader>i :GoInfo<CR>
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+" provides quicker ways to open alternate files, like :A, :AV, :AS, :AT
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " Tabular ----------------------------------------------------------------------
 
