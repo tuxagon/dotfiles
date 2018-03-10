@@ -11,6 +11,7 @@ rm -rf jellybeans.vim
 cd ~/.vim/bundle
 
 git clone https://github.com/rking/ag.vim
+git clone https://github.com/slashmili/alchemist.vim.git
 git clone https://github.com/w0rp/ale.git
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/editorconfig/editorconfig-vim.git
