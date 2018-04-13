@@ -140,6 +140,12 @@ let purescript_indent_do = 3
 let purescript_indent_in = 1
 let purescript_indent_dot = v:true
 
+" RSpec.vim mappings -----------------------------------------------------------
+map <Leader>rf :call RunCurrentSpecFile()<CR>
+map <Leader>rn :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
+
 " psc-ide-vim ------------------------------------------------------------------
 
 " helptags "~/.vim/bundles/psc-ide-vim/doc"
