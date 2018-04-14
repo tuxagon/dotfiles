@@ -6,7 +6,8 @@
 " - <leader> = \
 
 " Colors -----------------------------------------------------------------------
-colorscheme jellybeans  " jellybeans colorscheme
+" colorscheme jellybeans  " jellybeans colorscheme
+colorscheme neodark       " neodark colorscheme
 
 " Misc -------------------------------------------------------------------------
 syntax on  " enable syntax processing

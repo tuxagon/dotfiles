@@ -7,6 +7,9 @@ cd ~
 git clone https://github.com/nanotech/jellybeans.vim.git
 cp jellybeans.vim/colors ~/.vim/colors
 rm -rf jellybeans.vim
+git clone https://github.com/KeitaNakamura/neodark.vim.git
+cp neodark.vim/colors ~/.vim/colors
+rm -rf neodark.vim
 
 cd ~/.vim/bundle
 
