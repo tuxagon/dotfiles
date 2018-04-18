@@ -36,6 +36,7 @@ git clone https://github.com/vim-airline/vim-airline.git
 git clone https://github.com/vim-airline/vim-airline-themes.git
 git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
 git clone https://github.com/tpope/vim-bundler.git
+git clone https://github.com/kchmck/vim-coffee-script.git
 git clone https://github.com/tpope/vim-commentary.git
 git clone https://github.com/easymotion/vim-easymotion.git
 git clone https://github.com/elixir-editors/vim-elixir.git
