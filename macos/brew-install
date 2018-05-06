@@ -1,0 +1,29 @@
+#!/bin/bash
+
+which ruby
+if [ $? = 1 ]; then
+  echo "Ruby isn't installed"
+  exit 1
+fi
+
+# install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install formulas
+brew install vim --with-override-system-vi
+brew install git
+brew cask install iterm2
+brew install ag
+brew install tree
+brew install tmux
+brew install gpg
+brew install exercism
+brew install tmux
+brew upgrade gnupg
+brew link --overwrite gnupg
+brew install node
+brew install mysql@5.6
+brew install mysql
+brew install terraform
+brew install mycli
+brew install lastpass-cli --with-pinentry
