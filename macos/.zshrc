@@ -64,3 +64,16 @@ alias srcz="source ~/.zshrc"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export GPG_TTY=$(tty)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The only purpose of this script is to light up my keyboard on macos when it
+# gets plugged in
+if [ -z "$(find $HOME/Applications -name 'led-backlight-cmstorm')" ]; then
+  curl -L https://raw.githubusercontent.com/gholker/led-backlight-cmstorm/master/install.sh | sh
+fi
+if [ -n "$(ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*' | grep -e 'USB KEYBOARD')" ]; then
+  $HOME/Applications/led-backlight-cmstorm
+fi
