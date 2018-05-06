@@ -27,3 +27,4 @@ brew install mysql
 brew install terraform
 brew install mycli
 brew install lastpass-cli --with-pinentry
+brew install imagemagick --disable-openmp --build-from-source

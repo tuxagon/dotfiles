@@ -63,6 +63,7 @@ alias srcz="source ~/.zshrc"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 export GPG_TTY=$(tty)
 
