@@ -53,9 +53,10 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias cpzsh="cp ~/.zshrc ~/dotfiles"
-alias cpvim="cp ~/.vimrc ~/dotfiles"
-alias cptmux="cp ~/.tmux.conf ~/dotfiles"
+alias cpzsh="cp ~/.zshrc ~/Code/dotfiles"
+alias cpvim="cp ~/.vimrc ~/Code/dotfiles"
+alias cptmux="cp ~/.tmux.conf ~/Code/dotfiles"
+alias srcz="source ~/.zshrc"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
