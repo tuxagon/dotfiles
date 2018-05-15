@@ -43,8 +43,10 @@ git clone https://github.com/elixir-editors/vim-elixir.git
 git clone https://github.com/tpope/vim-endwise.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/fatih/vim-go.git
+git clone https://github.com/tpope/vim-haml.git
 git clone https://github.com/pangloss/vim-javascript.git
 git clone https://github.com/mxw/vim-jsx.git
+git clone https://github.com/yaymukund/vim-rabl.git
 git clone https://github.com/tpope/vim-rails.git
 vim -u NONE -c "helptags vim-rails/doc" -c q
 git clone https://github.com/vim-ruby/vim-ruby.git
