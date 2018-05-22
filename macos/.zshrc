@@ -65,6 +65,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
+# For Perl to install DBD:MySQL
+export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
+
+
 export GPG_TTY=$(tty)
 
 export NVM_DIR="$HOME/.nvm"
@@ -77,5 +81,18 @@ if [ -z "$(find $HOME/Applications -name 'led-backlight-cmstorm')" ]; then
   curl -L https://raw.githubusercontent.com/gholker/led-backlight-cmstorm/master/install.sh | sh
 fi
 if [ -n "$(ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*' | grep -e 'USB KEYBOARD')" ]; then
-  $HOME/Applications/led-backlight-cmstorm
+  $HOME/Applications/led-backlight-cmstorm >> /dev/null
 fi
+
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

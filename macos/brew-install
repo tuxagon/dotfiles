@@ -28,3 +28,9 @@ brew install terraform
 brew install mycli
 brew install lastpass-cli --with-pinentry
 brew install imagemagick --disable-openmp --build-from-source
+brew install wget
+brew install kubectl
+brew tap codeclimate/formulae
+brew install codeclimate
+brew install fzf
+$(brew --prefix)/opt/fzf/install
