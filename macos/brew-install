@@ -34,3 +34,5 @@ brew tap codeclimate/formulae
 brew install codeclimate
 brew install fzf
 $(brew --prefix)/opt/fzf/install
+brew install ansible
+brew install noti
