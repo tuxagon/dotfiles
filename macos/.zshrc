@@ -53,10 +53,11 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias cpzsh="cp ~/.zshrc ~/Code/dotfiles"
-alias cpvim="cp ~/.vimrc ~/Code/dotfiles"
-alias cptmux="cp ~/.tmux.conf ~/Code/dotfiles"
-alias srcz="source ~/.zshrc"
+alias cpzsh="cp $HOME/.zshrc $HOME/Code/dotfiles"
+alias cpvim="cp $HOME/.vimrc $HOME/Code/dotfiles"
+alias cptmux="cp $HOME/.tmux.conf $HOME/Code/dotfiles"
+alias srcz="source $HOME/.zshrc"
+alias fvim="vim \$(fzf)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -64,10 +65,13 @@ alias srcz="source ~/.zshrc"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 # For Perl to install DBD:MySQL
 export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
+# AWS
+source $HOME/.aws.secrets
 
 export GPG_TTY=$(tty)
 
