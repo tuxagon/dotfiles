@@ -38,3 +38,4 @@ brew install ansible
 brew install noti
 brew install postgresql@9.6
 brew install sqlite3
+brew install percona-toolkit
