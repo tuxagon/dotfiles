@@ -36,3 +36,5 @@ brew install fzf
 $(brew --prefix)/opt/fzf/install
 brew install ansible
 brew install noti
+brew install postgresql@9.6
+brew install sqlite3
