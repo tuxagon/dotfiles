@@ -40,10 +40,18 @@ export EDITOR='vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
+## Command-Line Completions ##
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
 # exercism autocompletion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
     . ~/.config/exercism/exercism_completion.zsh
 fi
+
+# helm completion
+source ~/.zsh/completion/.helm.completion
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
