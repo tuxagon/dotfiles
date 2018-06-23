@@ -34,6 +34,7 @@ set mouse=a
 set history=1000
 set clipboard=unnamedplus,autoselect
 set autowrite   " saves the file whenever :make is ran (used by vim-go)
+set backspace=indent,eol,start
 
 set foldenable  " enable folding
 set foldlevelstart=10  " open most folds by default
@@ -85,6 +86,12 @@ nnoremap <leader>l :call ToggleNumber()<CR>
 " nmap <C-]> :tabn<CR>
 " nmap <C-[> :tabp<CR>
 
+" Enable fzf (https://github.com/junegunn/fzf)
+" <C-J> / <C-K> (or <C-N> / <C-P>) to move cursor up / down
+" Enter key to select the item <C-C> / <C-G> / ESC to exit
+" Multi-select mode (-m), TAB and SHIFT-TAB to mark multiple items
+set rtp+=/usr/local/opt/fzf
+
 " use pathogen
 execute pathogen#infect()
 
@@ -93,11 +100,16 @@ execute pathogen#infect()
 " toggle undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" ag (silversearcher) ----------------------------------------------------------
-" https://github.com/ggreer/the_silver_searcher
+" vim-fugitive
+nnoremap <leader>b :Gblame<CR>
 
-" open ag.vim
-nnoremap <leader>a :Ag
+" ack.vim
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 " syntastic --------------------------------------------------------------------
 

@@ -39,3 +39,12 @@ brew install noti
 brew install postgresql@9.6
 brew install sqlite3
 brew install percona-toolkit
+brew install hub
+brew install phantomjs
+brew install cask chromedriver
+brew install kubernetes-helm
+brew install graphviz
+brew install bash-completion
+brew install elixir
+brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
+brew install git-extras

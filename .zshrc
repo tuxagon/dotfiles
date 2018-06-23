@@ -1,105 +1,141 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+###############################################################################
+#
+# oh-my-zsh configuration
+#
+###############################################################################
 
-# Path to your oh-my-zsh installation.
-export ZSH=/home/kbogner/.oh-my-zsh
-export PATH="$PATH:/home/kbogner/bin"
-export PATH="$PATH:/home/kbogner/bin/elixir-1.5.2/bin"
-export PATH="$PATH:/home/kbogner/.local/bin"
+# Set oh-my-zsh installation path
+export ZSH=/Users/kennethbogner/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="amuse"
+# Custom zsh theme
+ZSH_THEME="tuxagon"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Display red dots whilst waiting for completion
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  asdf
+  # aws
+  battery
+  bundler
+  capistrano
+  # codeclimate
+  colored-man-pages
+  command-not-found
+  encode64
+  gem
+  git
+  git-extras
+  # github
+  gitignore
+  helm
+  history
+  jump
+  kubectl
+  lwd
+  lol
+  # mix-fast
+  # mix
+  rails
+  rake-fast
+  rake
+  # redis-cli
+  ruby
+  # stack
+  # terraform
+  # vault
+)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+###############################################################################
+#
+# user configuration
+#
+###############################################################################
 
 # allow zsh to give me a sanity check on `rm *`
 setopt RM_STAR_WAIT
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
-# else
-#   export EDITOR='mvim'
-# fi
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# dotfile management
+export DOTFILE="$HOME/Code/dotfiles"
+
+# For Perl to install DBD:MySQL (deprecated)
+# export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
+
+# path shims/overrides
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# needed for gpg-agent
+# https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
+export GPG_TTY=$(tty)
+
+###############################################################################
+#
+# completions
+#
+###############################################################################
+
+# load any completion files under $HOME/.zsh
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 
 # exercism autocompletion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
     . ~/.config/exercism/exercism_completion.zsh
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+###############################################################################
 #
-alias cpzsh="cp ~/.zshrc ~/dotfiles"
-alias cpvim="cp ~/.vimrc ~/dotfiles"
-alias cptmux="cp ~/.tmux.conf ~/dotfiles"
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# aliases
+#
+# (NOTE) other aliases are placed in $ZSH/custom/alias.zsh
+#
+###############################################################################
+
+###############################################################################
+#
+# external scripts and custom tool configuration
+#
+###############################################################################
+
+# secrets
+source $HOME/.secrets
+
+# nvm setup (deprecated in favor of asdf)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+
+# The only purpose of this script is to light up my keyboard on macos when it
+# gets plugged in
+if [ -z "$(find $HOME/Applications -name 'led-backlight-cmstorm')" ]; then
+  curl -L https://raw.githubusercontent.com/gholker/led-backlight-cmstorm/master/install.sh | sh
+fi
+if [ -n "$(ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*' | grep -e 'USB KEYBOARD')" ]; then
+  $HOME/Applications/led-backlight-cmstorm >> /dev/null
+fi
