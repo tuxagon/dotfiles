@@ -14,19 +14,13 @@ fi
 local current_dir='(%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%})'
 
 # asdf versions
-function current_version() {
-  asdf_version=`asdf current $1 | awk '{print $1}'`
-  if [ "$asdf_version" = "No" ]; then
-    echo ''
-  else
-    echo " (%{$fg[red]%}$1-$asdf_version%{$reset_color%})"
-  fi
+function asdf_current() {
+  asdf current $1 | awk '{print $1}'
 }
 
-local asdf_ruby="$(current_version ruby )"
-local asdf_elixir=`current_version elixir magenta`
-local asdf_nodejs=`current_version nodejs yellow`
-local asdf_output="${asdf_ruby}${asdf_nodejs}"
+local asdf_ruby=' (%{$fg[red]%}ruby-$(asdf_current ruby)%{$reset_color%})'
+local asdf_elixir=' (%{$fg[magenta]%}elixir-$(asdf_current elixir)%{$reset_color%})'
+local asdf_nodejs=' (%{$fg[yellow]%}nodejs-$(asdf_current nodejs)%{$reset_color%})'
 
 # git branch
 local git_branch=' $(git_prompt_info)%{$reset_color%}'
@@ -35,7 +29,7 @@ local git_branch=' $(git_prompt_info)%{$reset_color%}'
 local datetime='(%{$fg[cyan]%}%D{%m/%d %L:%M%p}%{$reset_color%})'
 
 # zsh configuration
-PROMPT="╭─${user_host}${asdf_output}${git_branch}${datetime}
+PROMPT="╭─${user_host}${asdf_ruby}${git_branch}${datetime}
 ╰─${current_dir} %B${user_symbol}%b "
 RPS1="%B${return_code}%b"
 
