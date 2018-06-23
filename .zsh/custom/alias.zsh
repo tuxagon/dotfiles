@@ -1,6 +1,6 @@
 # copy and changes to dotfiles to repo
 function dotfile_update() {
-  cp -r $ZSH/custom $DOTFILE
+  cp -r $ZSH/custom $HOME/.zsh
   cp -r $HOME/.zsh $DOTFILE
   cp $HOME/.zshrc $DOTFILE
   cp $HOME/.asdfrc $DOTFILE
