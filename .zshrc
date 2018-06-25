@@ -33,6 +33,7 @@ plugins=(
   colored-man-pages
   command-not-found
   encode64
+  fzf
   gem
   git
   git-extras
