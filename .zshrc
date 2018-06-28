@@ -97,6 +97,9 @@ export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
 # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
 export GPG_TTY=$(tty)
 
+# android
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+
 ###############################################################################
 #
 # completions
