@@ -15,7 +15,7 @@ local current_dir='(%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%})'
 
 # asdf versions
 function asdf_current() {
-  asdf current $1 | awk '{print $1}'
+  asdf current $1 | awk -F' ' '{print $1}'
 }
 
 local asdf_ruby=' (%{$fg[red]%}ruby-$(asdf_current ruby)%{$reset_color%})'
