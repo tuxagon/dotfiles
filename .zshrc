@@ -99,6 +99,7 @@ export GPG_TTY=$(tty)
 
 # android
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 ###############################################################################
 #
