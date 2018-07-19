@@ -9,6 +9,7 @@ function dotfile_update() {
   git add .
   git commit -m "updated dotfiles"
   git push origin master
+  cd -
 }
 
 alias zcdp="rm $HOME/.zcompdump*"
