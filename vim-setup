@@ -36,6 +36,7 @@ declare -a repos=(
   "https://github.com/rking/ag.vim"
   "https://github.com/mileszs/ack.vim.git"
   "https://github.com/slashmili/alchemist.vim.git"
+  "https://github.com/w0rp/ale.git"
   "https://github.com/kien/ctrlp.vim.git"
   "https://github.com/tpope/vim-dispatch.git"
   "https://github.com/editorconfig/editorconfig-vim.git"

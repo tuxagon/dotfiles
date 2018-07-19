@@ -111,6 +111,10 @@ endif
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
+" ale --------------------------------------------------------------------------
+
+let g:ale_lint_on_text_changed = 'never'
+
 " syntastic --------------------------------------------------------------------
 
 " map <Leader>s :SyntasticToggleMode<CR>

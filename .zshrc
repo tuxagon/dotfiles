@@ -91,7 +91,7 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 # rubygems
-export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
+# export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
 
 # needed for gpg-agent
 # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
