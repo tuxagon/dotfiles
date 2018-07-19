@@ -50,6 +50,7 @@ declare -a repos=(
   "https://github.com/scrooloose/nerdtree.git"
   "https://github.com/FrigoEU/psc-ide-vim.git"
   "https://github.com/raichoo/purescript-vim.git"
+  "https://github.com/ruby-formatter/rufo-vim.git"
   "https://github.com/ervandew/supertab.git"
   "https://github.com/vim-syntastic/syntastic.git"
   "https://github.com/godlygeek/tabular.git"
