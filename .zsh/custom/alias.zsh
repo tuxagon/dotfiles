@@ -18,6 +18,8 @@ alias fvim="vim \$(fzf)"
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+
 # open vscode
 function code {
     if [[ $# = 0 ]]
@@ -28,4 +30,8 @@ function code {
         [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
         open -a "Visual Studio Code" "$argPath"
     fi
+}
+
+function asdf_postgres_start_966 {
+  pg_ctl -D "$HOME/.asdf/installs/postgres/9.6.6/data/" start
 }
