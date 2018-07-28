@@ -31,6 +31,14 @@ for repo in "${repos[@]}"; do
   install_color $repo
 done
 
+# Install NPM Packages Needed
+if [[ $(which npm &>/dev/null) ]]; then
+    npm install -g ocaml-language-server
+else
+    echo "Install NPM, then run"
+    echo "\n\tnpm install -g ocaml-language-server\n"
+fi
+
 # Install Vim Plugins
 declare -a repos=(
   "https://github.com/rking/ag.vim"
@@ -71,6 +79,7 @@ declare -a repos=(
   "https://github.com/pangloss/vim-javascript.git"
   "https://github.com/mxw/vim-jsx.git"
   "https://github.com/yaymukund/vim-rabl.git"
+  "https://github.com/reasonml-editor/vim-reason-plus.git"
   "https://github.com/vim-ruby/vim-ruby.git"
   "https://github.com/thoughtbot/vim-rspec.git"
   "https://github.com/tpope/vim-surround.git"
