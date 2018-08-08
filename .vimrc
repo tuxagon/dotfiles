@@ -106,10 +106,14 @@ nnoremap <leader>b :Gblame<CR>
 " ack.vim
 
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep --smart-case'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+  cnoreabbrev Ack Ack!
+  nnoremap <Leader>a :Ack!<Space>
 endif
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
 
 " ale --------------------------------------------------------------------------
 

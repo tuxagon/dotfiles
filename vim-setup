@@ -83,6 +83,7 @@ declare -a repos=(
   "https://github.com/vim-ruby/vim-ruby.git"
   "https://github.com/thoughtbot/vim-rspec.git"
   "https://github.com/tpope/vim-surround.git"
+  "https://github.com/hashivim/vim-terraform.git"
   "https://github.com/christoomey/vim-tmux-navigator.git"
   "https://github.com/skalnik/vim-vroom.git"
   "https://github.com/tpope/vim-rails.git"
