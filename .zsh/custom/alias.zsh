@@ -1,3 +1,5 @@
+# original: $HOME/.oh-my-zsh/custom/alias.zsh
+
 # copy and changes to dotfiles to repo
 function dotfile_update() {
   cp -r $ZSH/custom $HOME/.zsh
@@ -5,6 +7,7 @@ function dotfile_update() {
   cp $HOME/.zshrc $DOTFILE
   cp $HOME/.asdfrc $DOTFILE
   cp $HOME/.vimrc $DOTFILE
+  cp $HOME/.irbrc $DOTFILE
   cd $DOTFILE
   git add .
   git commit -m "updated dotfiles"
