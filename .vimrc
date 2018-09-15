@@ -20,6 +20,8 @@ set cursorline  " highlight current line
 set nowrap  " turns off line wrapping
 set showmode  " show what the current mode is
 set tw=80
+set colorcolumn=81  " add vertical ruler
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 set smartcase
 set smarttab
 set smartindent
