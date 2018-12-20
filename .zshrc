@@ -45,8 +45,8 @@ plugins=(
   kubectl
   lwd
   lol
-  mix-fast
-  mix
+  # mix-fast
+  # mix
   rails
   rake-fast
   rake
@@ -100,6 +100,9 @@ export GPG_TTY=$(tty)
 # android
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+# golang
+export PATH="$HOME/go/bin:$PATH"
 
 ###############################################################################
 #
