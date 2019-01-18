@@ -27,6 +27,8 @@ set smarttab
 set smartindent
 set autoindent
 set softtabstop=2  " number of spaces in tab when editing
+set tabstop=2
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set shiftwidth=2
 set expandtab  " tabs are spaces
 set incsearch  " search as characters are entered
@@ -47,6 +49,11 @@ nnoremap <space> za
 
 " highlight last inserted text
 nnoremap gV `[V`]
+
+" whitespace toggle
+noremap <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>
 
 set completeopt=menuone,menu,longest
 

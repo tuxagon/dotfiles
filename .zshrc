@@ -43,6 +43,7 @@ plugins=(
   history
   jump
   kubectl
+  kubetail
   lwd
   lol
   # mix-fast
@@ -133,6 +134,8 @@ fi
 #
 ###############################################################################
 
+source $HOME/.bash_profile
+
 # secrets
 source $HOME/.secrets
 
@@ -150,3 +153,10 @@ fi
 if [ -n "$(ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*' | grep -e 'USB KEYBOARD')" ]; then
   $HOME/Applications/led-backlight-cmstorm >> /dev/null
 fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
