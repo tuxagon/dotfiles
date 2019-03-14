@@ -216,6 +216,8 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 map <Leader>n :NERDTreeToggle<CR>
 
+let NERDTreeIgnore=['node_modules', 'elm-stuff']
+
 " vim-go -----------------------------------------------------------------------
 
 let g:go_list_type = "quickfix"

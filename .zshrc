@@ -105,6 +105,9 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # golang
 export PATH="$HOME/go/bin:$PATH"
 
+# Mojave hack
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 ###############################################################################
 #
 # completions
