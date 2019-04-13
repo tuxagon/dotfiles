@@ -155,20 +155,10 @@ let g:elm_setup_keybindings = 1
 
 " ghc-mod ----------------------------------------------------------------------
 
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-
-" purescript-vim ---------------------------------------------------------------
-
-let purescript_indent_if = 3
-let purescript_indent_case = 5
-let purescript_indent_let = 4
-let purescript_indent_where = 6
-let purescript_indent_do = 3
-let purescript_indent_in = 1
-let purescript_indent_dot = v:true
+"map <silent> tw :GhcModTypeInsert<CR>
+"map <silent> ts :GhcModSplitFunCase<CR>
+"map <silent> tq :GhcModType<CR>
+"map <silent> te :GhcModTypeClear<CR>
 
 " RSpec.vim mappings -----------------------------------------------------------
 map <Leader>rf :call RunCurrentSpecFile()<CR>
@@ -176,24 +166,30 @@ map <Leader>rn :call RunNearestSpec()<CR>
 map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 
-" psc-ide-vim ------------------------------------------------------------------
+" haskell-vim ------------------------------------------------------------------
 
-" helptags "~/.vim/bundles/psc-ide-vim/doc"
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
-let g:psc_ide_log_level = 3
-let g:psc_ide_syntastic_mode = 1
+autocmd BufWritePost package.yaml call Hpack()
 
-"nm <buffer> <silent> <leader>t :<C-U>call PSCIDEtype(PSCIDEgetKeyword(), v:true)<CR>
-"nm <buffer> <silent> <leader>T :<C-U>call PSCIDEaddTypeAnnotation(matchstr(getline(line(".")), '^\s*\zs\k\+\ze'))<CR>
-"nm <buffer> <silent> <leader>s :<C-U>call PSCIDEapplySuggestion()<CR>
-"nm <buffer> <silent> <leader>a :<C-U>call PSCIDEaddTypeAnnotation()<CR>
-"nm <buffer> <silent> <leader>i :<C-U>call PSCIDEimportIdentifier(PSCIDEgetKeyword())<CR>
-"nm <buffer> <silent> <leader>r :<C-U>call PSCIDEload()<CR>
-"nm <buffer> <silent> <leader>p :<C-U>call PSCIDEpursuit(PSCIDEgetKeyword())<CR>
-"nm <buffer> <silent> <leader>C :<C-U>call PSCIDEcaseSplit("!")<CR>
-"nm <buffer> <silent> <leader>f :<C-U>call PSCIDEaddClause("")<CR>
-"nm <buffer> <silent> <leader>qa :<C-U>call PSCIDEaddImportQualifications()<CR>
-"nm <buffer> <silent> ]d :<C-U>call PSCIDEgoToDefinition("", PSCIDEgetKeyword())<CR>
+function Hpack()
+  let err = system('stack exec hpack ' . expand('%'))
+  if v:shell_error
+    echo err
+  endif
+endfunction
+
+" vim-autoformatter ------------------------------------------------------------
+
+autocmd BufWrite *.hs :Autoformat
+" Don't automatically indent on save, since vim's autoindent for haskell is buggy
+autocmd FileType haskell let b:autoformat_autoindent=0
 
 " supertab --------------------------------------------------------------------- 
 
@@ -220,49 +216,42 @@ let NERDTreeIgnore=['node_modules', 'elm-stuff']
 
 " vim-go -----------------------------------------------------------------------
 
-let g:go_list_type = "quickfix"
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_autosave = 1
-let g:go_def_mode = 'godef'
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
+"let g:go_list_type = "quickfix"
+"let g:go_fmt_command = "goimports"
+"let g:go_metalinter_autosave = 1
+"let g:go_def_mode = 'godef'
+"let g:go_auto_type_info = 1
+"let g:go_auto_sameids = 1
 
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+"map <C-n> :cnext<CR>
+"map <C-m> :cprevious<CR>
+"nnoremap <leader>a :cclose<CR>
 
 " shortcuts for common vim-go functions
-autocmd FileType go nmap <leader>t :GoTest<CR>
+"autocmd FileType go nmap <leader>t :GoTest<CR>
 " autocmd FileType go nmap <leader>b :GoBuild<CR>
-autocmd FileType go nmap <leader>r :GoRun<CR>
-autocmd FileType go nmap <leader>c :GoCoverageToggle<CR>
-autocmd FileType go nmap <leader>d :GoDocBrowser<CR>
-autocmd FileType go nmap <leader>i :GoInfo<CR>
+"autocmd FileType go nmap <leader>r :GoRun<CR>
+"autocmd FileType go nmap <leader>c :GoCoverageToggle<CR>
+"autocmd FileType go nmap <leader>d :GoDocBrowser<CR>
+"autocmd FileType go nmap <leader>i :GoInfo<CR>
 
 " run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
+"function! s:build_go_files()
+"  let l:file = expand('%')
+"  if l:file =~# '^\f\+_test\.go$'
+"    call go#test#Test(0, 1)
+"  elseif l:file =~# '^\f\+\.go$'
+"    call go#cmd#Build(0)
+"  endif
+"endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+"autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 " provides quicker ways to open alternate files, like :A, :AV, :AS, :AT
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
-" ReasonML ---------------------------------------------------------------------
-
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['ocaml-language-server', '--stdio'],
-    \ 'ocaml': ['ocaml-language-server', '--stdio'],
-    \ }
+"autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+"autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+"autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+"autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " Tabular ----------------------------------------------------------------------
 
