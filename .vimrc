@@ -126,7 +126,12 @@ endif
 
 " ale --------------------------------------------------------------------------
 
-let g:ale_lint_on_text_changed = 'never'
+"let g:ale_linters = {'ruby': ['standardrb']}
+"let g:ale_fixers = {'ruby': ['standardrb']}
+
+"let g:ale_fix_on_save = 1
+
+"let g:ale_lint_on_text_changed = 'never'
 
 " syntastic --------------------------------------------------------------------
 
@@ -187,9 +192,9 @@ endfunction
 
 " vim-autoformatter ------------------------------------------------------------
 
-autocmd BufWrite *.hs :Autoformat
+" autocmd BufWrite *.hs :Autoformat
 " Don't automatically indent on save, since vim's autoindent for haskell is buggy
-autocmd FileType haskell let b:autoformat_autoindent=0
+" autocmd FileType haskell let b:autoformat_autoindent=0
 
 " supertab --------------------------------------------------------------------- 
 
