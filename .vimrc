@@ -114,6 +114,9 @@ nnoremap <leader>b :Gblame<CR>
 
 " ack.vim
 
+let g:vimrubocop_keymap = 0
+nmap <Leader>rc :RuboCop<CR>
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
   cnoreabbrev ag Ack
@@ -131,7 +134,7 @@ endif
 
 "let g:ale_fix_on_save = 1
 
-"let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'never'
 
 " syntastic --------------------------------------------------------------------
 

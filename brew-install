@@ -49,3 +49,4 @@ brew install elixir
 brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
 brew install git-extras
 brew install watch
+brew install inetutils

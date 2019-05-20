@@ -90,6 +90,8 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # rubygems
 # export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
 
@@ -106,6 +108,10 @@ export PATH="$HOME/go/bin:$PATH"
 
 # Mojave hack
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Percona hack
+export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include/mysql -I/usr/local/Cellar/openssl@1.1/1.1.1/include"
+export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
 
 ###############################################################################
 #
@@ -166,3 +172,9 @@ fi
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/kennethbogner/Code/playground/dynamo/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/kennethbogner/Code/playground/dynamo/node_modules/tabtab/.completions/slss.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kennethbogner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kennethbogner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kennethbogner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kennethbogner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
