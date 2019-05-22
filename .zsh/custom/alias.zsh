@@ -8,6 +8,7 @@ function dotfile_update() {
   cp $HOME/.asdfrc $DOTFILE
   cp $HOME/.vimrc $DOTFILE
   cp $HOME/.irbrc $DOTFILE
+  cp $HOME/.chunkwmrc $DOTFILE
   cd $DOTFILE
   git add .
   git commit -m "updated dotfiles"
