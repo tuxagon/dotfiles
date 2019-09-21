@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugs')
 Plug 'airblade/vim-gitgutter'
 Plug 'alx741/vim-stylishask', { 'for': 'haskell' }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'copy/deoplete-ocaml', { 'for': 'ocaml' }
 Plug 'dan-t/vim-hsimport', { 'for': 'haskell' }
 Plug 'dense-analysis/ale', { 'for': 'elm' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
@@ -10,12 +11,14 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'let-def/ocp-indent-vim', { 'for': 'ocaml' }
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 Plug 'neomake/neomake'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'parsonsmatt/intero-neovim', { 'for': 'haskell' }
 Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
 Plug 'rakr/vim-one', { 'as': 'one' }
+Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -288,3 +291,8 @@ autocmd FileType haskell nnoremap <leader># :Tabularize /#-}<CR>
 
 " supertab setup
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+" opam configuration
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
