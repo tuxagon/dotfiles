@@ -28,7 +28,7 @@ plugins=(
   # aws
   battery
   bundler
-  capistrano
+  # capistrano
   # codeclimate
   colored-man-pages
   command-not-found
@@ -43,7 +43,7 @@ plugins=(
   history
   jump
   kubectl
-  kubetail
+  # kubetail
   lol
   # mix-fast
   # mix
@@ -86,11 +86,10 @@ export DOTFILE="$HOME/Code/dotfiles"
 # export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
 # path shims/overrides
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-export PATH="$HOME/.local/bin:$PATH"
 
 # rubygems
 # export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
@@ -110,8 +109,18 @@ export PATH="$HOME/go/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Percona hack
-export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include/mysql -I/usr/local/Cellar/openssl@1.1/1.1.1/include"
-export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
+#export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include/mysql -I/usr/local/Cellar/openssl@1.1/1.1.1/include"
+#export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+#export LDFLAGS="-L/usr/local/opt/openssl/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+#export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
+#export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
+
+# export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 ###############################################################################
 #
@@ -122,6 +131,8 @@ export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
 # load any completion files under $HOME/.zsh
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+. /usr/local/aws/bin/aws_zsh_completer.sh
 
 # exercism autocompletion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -135,6 +146,10 @@ fi
 # (NOTE) other aliases are placed in $ZSH/custom/alias.zsh
 #
 ###############################################################################
+
+# alias credstore="$HOME/Code/operations/tools/tools credstore"
+alias opstools="docker run -it --rm -v ~/.aws:/root/.aws -e AWS_PROFILE=assurant 783369351099.dkr.ecr.us-east-1.amazonaws.com/opstools"
+alias credstore="opstools credstore"
 
 ###############################################################################
 #
