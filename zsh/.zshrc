@@ -80,13 +80,14 @@ export VISUAL=$EDITOR
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # dotfile management
-export DOTFILE="$HOME/Code/dotfiles"
+export DOTFILE="$HOME/code/dotfiles"
 
 # For Perl to install DBD:MySQL (deprecated)
 # export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
 # path shims/overrides
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
@@ -132,13 +133,6 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-. /usr/local/aws/bin/aws_zsh_completer.sh
-
-# exercism autocompletion
-if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-    . ~/.config/exercism/exercism_completion.zsh
-fi
-
 ###############################################################################
 #
 # aliases
@@ -161,35 +155,3 @@ source $HOME/.bash_profile
 
 # secrets
 source $HOME/.secrets
-
-# nvm setup (deprecated in favor of asdf)
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# This loads nvm bash_completion
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
-
-# The only purpose of this script is to light up my keyboard on macos when it
-# gets plugged in
-if [ -z "$(find $HOME/Applications -name 'led-backlight-cmstorm')" ]; then
-  curl -L https://raw.githubusercontent.com/gholker/led-backlight-cmstorm/master/install.sh | sh
-fi
-if [ -n "$(ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*' | grep -e 'USB KEYBOARD')" ]; then
-  $HOME/Applications/led-backlight-cmstorm >> /dev/null
-fi
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kennethbogner/.asdf/installs/nodejs/8.10.0/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/kennethbogner/Code/playground/dynamo/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/kennethbogner/Code/playground/dynamo/node_modules/tabtab/.completions/slss.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kennethbogner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kennethbogner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kennethbogner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kennethbogner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
