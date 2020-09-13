@@ -24,4 +24,5 @@ brew install \
     jq \
     ruby-build \
     wget \
-    terraform
+    terraform \
+    aws-google-auth
