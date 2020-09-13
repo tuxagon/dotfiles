@@ -25,4 +25,5 @@ brew install \
     ruby-build \
     wget \
     terraform \
-    aws-google-auth
+    aws-google-auth \
+    mysql
