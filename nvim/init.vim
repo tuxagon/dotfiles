@@ -46,6 +46,8 @@ call plug#begin("~/.vim/plugged")
 
   Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
+
+  Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 " Config Section
@@ -56,9 +58,11 @@ endif
 syntax enable
 colorscheme dracula
 
+set nocompatible
 set number
 set hidden
 set ruler
+set statusline+=\ ·\ buf:\ %n\ ·\ col:\ %c\ ·\ val:\ %b\ ·\ %f
 set mouse=a
 set encoding=utf-8
 set autoread
@@ -76,6 +80,7 @@ set showmode
 set noerrorbells
 set nostartofline
 set cmdheight=2
+set clipboard=unnamed
 
 " Use <C-L> to clear the highlighting of :set hlsearch
 if maparg('<C-L>', 'n') ==# ''
@@ -163,6 +168,15 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+" if exists('*complete_info')
+  " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
