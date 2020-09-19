@@ -1,12 +1,16 @@
 call plug#begin("~/.vim/plugged")
   " Plugin Section
   Plug 'dracula/vim'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'drewtempelmeyer/palenight.vim'
 
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -56,7 +60,7 @@ if (has("termguicolors"))
 endif
 
 syntax enable
-colorscheme dracula
+colorscheme palenight
 
 set nocompatible
 set number
