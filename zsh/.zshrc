@@ -147,6 +147,20 @@ autoload -Uz compinit && compinit -i
 alias opstools="docker run -it --rm -v ~/.aws:/root/.aws -e AWS_PROFILE=assurant 783369351099.dkr.ecr.us-east-1.amazonaws.com/opstools"
 alias credstore="opstools credstore"
 
+alias u="ultralist"
+alias uc="ultralist l group:context"
+alias up="ultralist l group:project"
+alias ucs="ultralist l due:agenda group:context"
+alias upa="ultralist l due:agenda group:project"
+alias tod="ultralist l goup:project due:tod"
+alias tom="ultralist l goup:project due:tom"
+alias mon="ultralist l goup:project due:mon"
+alias tue="ultralist l goup:project due:tue"
+alias wed="ultralist l goup:project due:wed"
+alias thu="ultralist l goup:project due:thu"
+alias fri="ultralist l goup:project due:fri"
+alias c="ultralist l completed:tod"
+
 ###############################################################################
 #
 # external scripts and custom tool configuration
