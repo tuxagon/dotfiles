@@ -9,7 +9,7 @@ export ZSH=/Users/kennethbogner/.oh-my-zsh
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # Custom zsh theme
-ZSH_THEME="tuxagon"
+ZSH_THEME="half-life"
 
 # Display red dots whilst waiting for completion
 COMPLETION_WAITING_DOTS="true"
