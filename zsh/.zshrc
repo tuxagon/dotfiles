@@ -87,6 +87,9 @@ export DOTFILE="$HOME/code/dotfiles"
 # For Perl to install DBD:MySQL (deprecated)
 # export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
+# Flutter
+export PATH="$PATH:$HOME/code/flutter/bin"
+
 # path shims/overrides
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -146,6 +149,9 @@ autoload -Uz compinit && compinit -i
 # alias credstore="$HOME/Code/operations/tools/tools credstore"
 alias opstools="docker run -it --rm -v ~/.aws:/root/.aws -e AWS_PROFILE=assurant 783369351099.dkr.ecr.us-east-1.amazonaws.com/opstools"
 alias credstore="opstools credstore"
+
+alias kscapp="kubectl get pods -n server-core -o json | jq '.items[].metadata.name | select(test(\".app.\"))' | head -1 | tr -d '\"'"
+alias kscsidekiq="kubectl get pods -n server-core -o json | jq '.items[].metadata.name | select(test(\".sidekiq.\"))' | head -1 | tr -d '\"'"
 
 alias u="ultralist"
 alias uc="ultralist l group:context"
