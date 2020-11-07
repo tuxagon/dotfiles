@@ -87,9 +87,6 @@ export DOTFILE="$HOME/code/dotfiles"
 # For Perl to install DBD:MySQL (deprecated)
 # export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
-# Flutter
-export PATH="$PATH:$HOME/code/flutter/bin"
-
 # path shims/overrides
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -119,6 +116,12 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 #export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# Flutter
+export PATH="$HOME/code/flutter/bin:$PATH"
+export PATH="$HOME/.pub-cache/bin:$PATH"
+
+export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 
 #export LDFLAGS="-L/usr/local/opt/openssl/lib"
 #export CPPFLAGS="-I/usr/local/opt/openssl/include"
