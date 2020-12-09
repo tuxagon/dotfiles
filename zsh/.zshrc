@@ -126,6 +126,7 @@ export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 #export LDFLAGS="-L/usr/local/opt/openssl/lib"
 #export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 #export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
 #export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
 
