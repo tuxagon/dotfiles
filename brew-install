@@ -50,3 +50,4 @@ brew install coreutils automake autoconf openssl libyaml readline libxslt libtoo
 brew install git-extras
 brew install watch
 brew install inetutils
+brew install ssh-copy-id
