@@ -27,4 +27,5 @@ brew install \
     terraform \
     aws-google-auth \
     mysql \
-    ultralist
+    ultralist \
+    gh
