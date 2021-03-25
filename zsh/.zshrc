@@ -181,3 +181,5 @@ source $HOME/.bash_profile
 
 # secrets
 source $HOME/.secrets
+
+. $HOME/.asdf/asdf.sh

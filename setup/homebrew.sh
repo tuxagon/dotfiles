@@ -8,7 +8,6 @@ then
 fi
 
 brew install \
-    asdf \
     gnupg \
     the_silver_searcher \
     fzf \
@@ -29,3 +28,5 @@ brew install \
     mysql \
     ultralist \
     gh
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
