@@ -2,31 +2,33 @@
 
 set -x
 
+alias ibrew="arch -x86_64 /usr/local/Homebrew/bin/brew"
+
 if ! command -v brew &> /dev/null
 then
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+    arch -arm64 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+    arch -x86_64 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
 fi
 
+brew install --cask iterm2
+
 brew install \
-    gnupg \
-    the_silver_searcher \
-    fzf \
-    neovim \
-    kubernetes-cli \
-    helm \
-    coreutils \
-    git \
-    zsh \
-    zsh-completions \
-    bash-completion \
-    gettext \
-    jq \
-    ruby-build \
-    wget \
-    terraform \
-    aws-google-auth \
-    mysql \
-    ultralist \
-    gh
+  neovim \
+  gnupg \
+  the_silver_searcher \
+  fzf \
+  zsh-completions \
+  git \
+  zsh \
+  coreutils \
+  jq \
+  curl \
+  wget \
+  ultralist \
+  gh
+
+ibrew install \
+  readline \
+  ruby-build
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
