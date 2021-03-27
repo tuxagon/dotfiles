@@ -21,6 +21,8 @@ brew install \
   git \
   zsh \
   coreutils \
+  autoconf \
+  wxmac \
   jq \
   curl \
   wget \
