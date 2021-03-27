@@ -25,11 +25,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   asdf
-  # aws
   battery
   bundler
-  # capistrano
-  # codeclimate
   colored-man-pages
   command-not-found
   encode64
@@ -37,24 +34,16 @@ plugins=(
   gem
   git
   git-extras
-  # github
   gitignore
   helm
   history
   jump
   kubectl
-  # kubetail
   lol
-  # mix-fast
-  # mix
   rails
   rake-fast
   rake
-  # redis-cli
   ruby
-  # stack
-  # terraform
-  # vault
 )
 
 ZSH_DISABLE_COMPFIX="true"
@@ -74,7 +63,7 @@ setopt RM_STAR_WAIT
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -88,49 +77,23 @@ export DOTFILE="$HOME/code/dotfiles"
 # export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
 
 # path shims/overrides
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-# rubygems
-# export GEM_PATH="$HOME/.asdf/installs/ruby/2.4.2/lib/ruby/gems/2.4.0/gems"
+# export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/bin:$PATH"
 
 # needed for gpg-agent
 # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
 export GPG_TTY=$(tty)
 
-# android
-export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-
-# golang
-export PATH="$HOME/go/bin:$PATH"
-
 # Mojave hack
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Percona hack
-#export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include/mysql -I/usr/local/Cellar/openssl@1.1/1.1.1/include"
-#export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib -L/usr/local/opt/openssl@1.1/lib"
+# export PATH="/usr/local/opt/openssl/bin:$PATH"
 
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+path=('/opt/homebrew/bin' $path)
 
-# Flutter
-export PATH="$HOME/code/flutter/bin:$PATH"
-export PATH="$HOME/.pub-cache/bin:$PATH"
+export PATH
 
-export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-
-#export LDFLAGS="-L/usr/local/opt/openssl/lib"
-#export CPPFLAGS="-I/usr/local/opt/openssl/include"
-
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-#export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
-#export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
-
-# export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###############################################################################
 #
@@ -139,8 +102,12 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 ###############################################################################
 
 # load any completion files under $HOME/.zsh
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit -i
+fi
 
 ###############################################################################
 #
@@ -149,13 +116,6 @@ autoload -Uz compinit && compinit -i
 # (NOTE) other aliases are placed in $ZSH/custom/alias.zsh
 #
 ###############################################################################
-
-# alias credstore="$HOME/Code/operations/tools/tools credstore"
-alias opstools="docker run -it --rm -v ~/.aws:/root/.aws -e AWS_PROFILE=assurant 783369351099.dkr.ecr.us-east-1.amazonaws.com/opstools"
-alias credstore="opstools credstore"
-
-alias kscapp="kubectl get pods -n server-core -o json | jq '.items[].metadata.name | select(test(\".app.\"))' | head -1 | tr -d '\"'"
-alias kscsidekiq="kubectl get pods -n server-core -o json | jq '.items[].metadata.name | select(test(\".sidekiq.\"))' | head -1 | tr -d '\"'"
 
 alias u="ultralist"
 alias uc="ultralist l group:context"
@@ -171,13 +131,16 @@ alias thu="ultralist l goup:project due:thu"
 alias fri="ultralist l goup:project due:fri"
 alias c="ultralist l completed:tod"
 
+alias i="arch -x86_64"
+alias ibrew="arch -x86_64 /usr/local/Homebrew/bin/brew"
+
 ###############################################################################
 #
 # external scripts and custom tool configuration
 #
 ###############################################################################
 
-source $HOME/.bash_profile
+# source $HOME/.bash_profile
 
 # secrets
 source $HOME/.secrets
