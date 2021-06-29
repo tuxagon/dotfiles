@@ -40,7 +40,6 @@ plugins=(
   jump
   kubectl
   lol
-  rails
   rake-fast
   rake
   ruby
@@ -73,9 +72,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # dotfile management
 export DOTFILE="$HOME/code/dotfiles"
 
-# For Perl to install DBD:MySQL (deprecated)
-# export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.6/lib/"
-
 # path shims/overrides
 # export PATH="$HOME/.local/bin:$PATH"
 # export PATH="$HOME/bin:$PATH"
@@ -87,9 +83,10 @@ export GPG_TTY=$(tty)
 # Mojave hack
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# export PATH="/usr/local/opt/openssl/bin:$PATH"
-
+path=('/usr/local/opt/openssl/bin', $path)
 path=('/opt/homebrew/bin' $path)
+path=($HOME'/.cargo/bin' $path)
+path+=($HOME'/.local/bin')
 
 export PATH
 
@@ -146,3 +143,4 @@ alias ibrew="arch -x86_64 /usr/local/Homebrew/bin/brew"
 source $HOME/.secrets
 
 . $HOME/.asdf/asdf.sh
+if [ -e /Users/kennethbogner/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/kennethbogner/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
