@@ -7,10 +7,18 @@ call plug#begin("~/.vim/plugged")
 
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'jiangmiao/auto-pairs'
+  " Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-abolish'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'vim-autoformat/vim-autoformat'
+  Plug 'nbouscal/vim-stylish-haskell'
+
+  Plug 'elixir-lang/vim-elixir'
+  Plug 'thinca/vim-ref'
+  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+  Plug 'LnL7/vim-nix'
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -31,6 +39,7 @@ call plug#begin("~/.vim/plugged")
     \ 'coc-sql',
     \ 'coc-solargraph',
     \ 'coc-explorer',
+    \ 'coc-bookmark',
     \ 'coc-python',
     \ 'coc-yaml',
     \ 'coc-todolist',
@@ -39,7 +48,7 @@ call plug#begin("~/.vim/plugged")
     \ 'coc-sh',
     \ 'coc-yank',
     \ 'coc-git',
-    \ 'coc-rls'
+    \ 'coc-rust-analyzer'
     \]
 
   Plug 'leafgarland/typescript-vim'
@@ -138,7 +147,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden -U --ignore .git -g ""'
 
 " ale
 let g:ale_linters = {
-  \   'ruby': ['rubocop']
+  \   'ruby': ['standardrb']
   \}
 
 " Remap for do codeAction of selected region
