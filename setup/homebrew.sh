@@ -27,7 +27,8 @@ brew install \
   curl \
   wget \
   ultralist \
-  gh
+  gh \
+  ripgrep
 
 ibrew install \
   readline \
